@@ -1,4 +1,4 @@
-﻿namespace Sound
+﻿namespace classical
 {
     public class Sound
     {
@@ -13,6 +13,15 @@
 
     public class Kassettebånd
     {
+        public string kind { get; set; }
 
     }
+
+    public class Vinyl
+    {
+        public int size { get; set; }
+        public string kind { set; get; }
+
+    }
+
 }
