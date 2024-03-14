@@ -8,6 +8,8 @@
         public string Brand { get; set; }
         public string Album { get; set; }
         public string Artist { get; set; }
+        public bool Favorite { get; set; }
+
 
     }
 
