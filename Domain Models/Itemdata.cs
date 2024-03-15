@@ -39,7 +39,7 @@ namespace BlazorApp.Components.Pages
                 Album = "Piano Sonata No. 14 in C-sharp minor, Op. 27, No. 2",
                 Brand = "Deutsche Grammophon",
                 Tracks = "I. Adagio sostenuto, II. Allegretto, III. Presto agitato",
-                Favorite = true,
+                Favorite = false,
             });
 
             allItemdata.Add(new Sound
@@ -55,7 +55,7 @@ namespace BlazorApp.Components.Pages
                 Album = "The Dark Side of the Moon",
                 Brand = "Harvest, Capitol",
                 Tracks = "Speak to Me, Breathe, On the Run, Time, The Great Gig in the Sky, Money, Us and Them, Any Colour You Like, Brain Damage, Eclipse",
-                Favorite = true,
+                Favorite = false,
             });
 
             allItemdata.Add(new Sound
