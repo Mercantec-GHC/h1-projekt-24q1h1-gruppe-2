@@ -132,6 +132,8 @@ namespace BlazorApp.Components.Pages
                 Validatedprofil = true
             });
 
+            return allSellersUsers;
+
         }
 
     }
