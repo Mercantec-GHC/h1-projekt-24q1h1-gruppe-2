@@ -10,6 +10,11 @@
         public string Artist { get; set; }
         public bool Favorite { get; set; }
 
+        public void SetItem() { }
+        public void GetItem() { }
+        public void AddItem() { }
+        public void RemoveItem() { }
+        public void ItemStatus() { }
 
     }
 
