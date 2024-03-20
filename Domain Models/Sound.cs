@@ -4,7 +4,8 @@ namespace classical
 {
     public class Sound
     {
-        public string soundId { get; set; }
+        public uint soundId { get; set; }
+        private static uint lastId = 0;
         public string Name {  get; set; }
         public string Condition { get; set; }
         public string Speed { get; set; }
@@ -18,6 +19,23 @@ namespace classical
         public string Artist { get; set; }
         public bool Favorite { get; set; }
         public string Description { get; set; }
+
+        public Sound(string Name, string Condition, string Speed, string Tracks, int Price )
+        {
+            this.Url $"product/{Sound.lastId}";
+            soundId = lastId++;
+            this.Name = Name ;
+            this.Condition = Condition ;
+            this.Speed = Speed ;
+            this.Tracks = Tracks ;
+            this.Price = Price ;
+
+        }
+        public virtual void DisplaySound()
+        {
+            Console.WriteLine("----------------------------------------");
+            Console.WriteLine($"This");
+        }
 
         public void SetItem() { }
         public void GetItem() { }

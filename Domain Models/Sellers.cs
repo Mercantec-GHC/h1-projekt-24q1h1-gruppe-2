@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Users
+namespace User
 {
     public class Sellers
     {

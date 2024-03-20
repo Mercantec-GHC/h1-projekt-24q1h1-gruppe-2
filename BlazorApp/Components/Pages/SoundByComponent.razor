@@ -1,8 +1,23 @@
 ﻿@page "/sound1/{soundId}"
+@using classicals
+
 <PageTitle>Sound @soundId</PageTitle>
 
-<h3>SoundByComponent</h3>
+@if (soundToShow is Vinyl vinyl )
+{
+    <Vinylpladeside Vinyl = "Vinyl"> </Vinylpladeside>
+
+}
 
 @code {
+    List<Sound> allsound = new CreateSound().CreateListOdSounds()
+        [Parameter]
+        public string Id { get; set; }
+        public Sound soundToShow;
+
+        protected override void onInitialized()
+        {
+            soundToShow = allSound[Int31.parse(Id)];
+        }
 
 }

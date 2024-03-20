@@ -1,0 +1,26 @@
+﻿
+<div class="card">
+    <div class="card-body">
+        <div class="card-content">
+            <h5 class="card-title">Name: @sound.Name</h5>
+            <h5 class="card-title">Condition: @sound.Condition</h5>
+            <h5 class="card-title">Speed: @sound.Speed</h5>
+            <h5 class="card-title">Year: @sound.Year</h5>
+            <h5 class="card-title">Tracks: @sound.Tracks</h5>
+            <h5 class="card-title">Size: @sound.Size</h5>
+            <h5 class="card-title">Price: @sound.Price</h5>
+            <h5 class="card-title">Genre: @sound.Genre</h5>
+            <h5 class="card-title">Brand: @sound.Brand</h5>
+            <h5 class="card-title">Album: @sound.Album</h5>
+            <h5 class="card-title">Artist: @sound.Artist</h5>
+            <h5 class="card-title">Favorite: @sound.Favorite</h5>
+            <h5 class="card-title">Description: @sound.Description</h5>
+            <h4></h4>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public Itemdata sound { get; set; }
+}
