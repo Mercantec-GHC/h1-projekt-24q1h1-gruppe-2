@@ -4,8 +4,7 @@ namespace classical
 {
     public class Sound
     {
-        public Sound ID { get; set; }
-        //private static Sound lastID = 0;
+        public string soundId { get; set; }
         public string Name {  get; set; }
         public string Condition { get; set; }
         public string Speed { get; set; }
