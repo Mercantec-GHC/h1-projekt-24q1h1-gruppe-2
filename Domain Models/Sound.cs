@@ -1,11 +1,11 @@
 ﻿using System.Formats.Asn1;
 
-namespace classical
+namespace Domain_Models
 {
-    public class Sound
+    public abstract class Sound
     {
-        public uint soundId { get; set; }
-        private static uint lastId = 0;
+        public int soundId { get; set; }
+        public string url { get; set; }
         public string Name {  get; set; }
         public string Condition { get; set; }
         public string Speed { get; set; }
@@ -23,8 +23,6 @@ namespace classical
 
         public Sound(string Name, string Condition, string Speed, string Tracks, int Price )
         {
-            this.Url $"product/{Sound.lastId}";
-            soundId = lastId++;
             this.Name = Name ;
             this.Condition = Condition ;
             this.Speed = Speed ;
@@ -35,18 +33,16 @@ namespace classical
         public virtual void DisplaySound()
         {
             Console.WriteLine("----------------------------------------");
-            Console.WriteLine($"This");
+            Console.WriteLine($"This classical is called ");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine($);
         }
-
-        public void SetItem() { }
-        public void GetItem() { }
-        public void AddItem() { }
-        public void RemoveItem() { }
-        public void ItemStatus() { }
 
     }
 
-    public class Kassettebånd
+    public abstract class Sound : 
+
+    public abstract class Kassettebånd
     {
         public string kind { get; set; }
 
