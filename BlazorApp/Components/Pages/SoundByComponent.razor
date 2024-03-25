@@ -1,16 +1,13 @@
-﻿@page "/sound1/{soundId}"
+﻿@* @page "/sound1/{soundId}"
 @using classicals
 
 <PageTitle>Sound @soundId</PageTitle>
 
-@if (soundToShow is Vinyl vinyl )
-{
+
     <Vinylpladeside Vinyl = "Vinyl"> </Vinylpladeside>
 
-}
-
 @code {
-    List<Sound> allsound = new CreateSound().CreateListOdSounds()
+        List<Sound> allsound = new CreateSound().CreateListOdSounds()
         [Parameter]
         public string Id { get; set; }
         public Sound soundToShow;
@@ -21,3 +18,4 @@
         }
 
 }
+ *@

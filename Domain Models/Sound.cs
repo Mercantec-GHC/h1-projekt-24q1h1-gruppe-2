@@ -2,9 +2,9 @@
 
 namespace Domain_Models
 {
-    public abstract class Sound
+    public class Sound
     {
-        public int soundId { get; set; }
+        public int id { get; set; }
         public string url { get; set; }
         public string name {  get; set; }
         public string condition { get; set; }
@@ -22,15 +22,16 @@ namespace Domain_Models
         public string type { get; set; }
         public List<string> image { get; set; }
 
-        public Sound(string name, string condition, string speed, string tracks, int price )
-        {
-            this.name = name ;
-            this.condition = condition ;
-            this.speed = speed ;
-            this.tracks = tracks ;
-            this.price = price ;
 
-        }
+        //removed constructor from code
+        //public Sound(string name, string condition, string speed, string tracks, int price)
+        //{
+        //    this.name = name ;
+        //    this.condition = condition ;
+        //    this.speed = speed ;
+        //    this.tracks = tracks ;
+        //    this.price = price ;
+        //}
         public virtual void DisplaySound()
         {
             Console.WriteLine("----------------------------------------");
@@ -53,28 +54,5 @@ namespace Domain_Models
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine($"{this.price}");
         }
-
     }
-
-
-    public class Kassettebånd
-    {
-        public string kind { get; set; }
-
-    }
-
-    public class CDs
-    {
-        public string Length { get; set; }
-
-    }
-
-
-    public class Vinyl
-    {
-        public int size { get; set; }
-        public string kind { set; get; }
-
-    }
-
 }

@@ -8,7 +8,7 @@ namespace Domain_Models
             List<Sound> AllItemdata = new List<Sound>();
             AllItemdata.Add(new Sound
             {
-                soundId = 1,
+                id = 1,
                 name = "My Man",
                 artist = "Ben Webster",
                 condition = "MINT",
@@ -21,7 +21,6 @@ namespace Domain_Models
                 brand = "Steeplechase",
                 tracks = "Sunday, Old Folks, Willow Weep For Me, I Got Rhythm, Exactly Like You, Sett Call",
                 favorite = false,
-
             });
 
       
