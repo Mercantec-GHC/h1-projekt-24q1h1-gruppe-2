@@ -1,21 +1,36 @@
-﻿@* @page "/sound1/{soundId}"
-@using classicals
+﻿@page "/soundInfomation/{id}"
 
-<PageTitle>Sound @soundId</PageTitle>
+<PageTitle>Sound @id</PageTitle>
 
+<div class="card" style="width: 18rem" >
+    <div class="card-body">
+      <p>
+            Name: @soundToShow.name
+            Artist: @soundToShow.artist
+            Album: @soundToShow.album
+            Condition: @soundToShow.condition
+            Speed: @soundToShow.speed
+            Size: @soundToShow.size
+            Year: @soundToShow.year
+            Price: @soundToShow.price
+            Genre: @soundToShow.genre
+            Brand: @soundToShow.brand
+            Tracks: @soundToShow.tracks
 
-    <Vinylpladeside Vinyl = "Vinyl"> </Vinylpladeside>
+      </p>
+
+      <a href="/products" class="btn btn-primary">Go back to products</a>
+    </div>
+</div>
 
 @code {
-        List<Sound> allsound = new CreateSound().CreateListOdSounds()
-        [Parameter]
-        public string Id { get; set; }
+    [Parameter]
+        public string id { get; set; }
         public Sound soundToShow;
 
-        protected override void onInitialized()
+        protected override void OnInitialized()
         {
-            soundToShow = allSound[Int31.parse(soundId)];
+            soundToShow = allSounds[Int32.Parse(id)];
         }
 
 }
- *@

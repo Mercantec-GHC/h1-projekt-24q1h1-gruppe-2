@@ -14,7 +14,7 @@ Embrace the magic of music's past and present as you explore our eclectic range 
     <div class="card-body">
         <h5 class="card-title">View all items</h5>
         <p class="card-text">To see all of our product just press the button below</p>
-        <a href="#" class="btn btn-primary">View all</a>
+        <a href="#allproducts" class="btn btn-primary">View all</a>
     </div>
 </div>
 
@@ -69,8 +69,8 @@ Embrace the magic of music's past and present as you explore our eclectic range 
 </div>
 </div>
 
-<h1>All products</h1>
-
+<h1 id="allproducts">All products</h1>
+<p>We currently have @soundsToShow.Count classicals on our website</p>
 
 <div class="container">
     <div class="row">
@@ -78,11 +78,13 @@ Embrace the magic of music's past and present as you explore our eclectic range 
         {
             <div class="col-md-4">
                 <div class="card" style="width: 18rem;">
-                    <img src="..." class="card-img-top" alt="...">
+                    <img src="/assets/vinylplade.latest.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">@sound.name</h5>
-                        <p class="card-text">@sound.tracks</p>
-                        <a href="Product/@sound.id" class="btn btn-primary">Go to see @sound.name</a>
+                        <p class="card-text">Artist: @sound.artist</p>
+                        <p class="card-text">Condition: @sound.condition</p>
+                        <p class="card-text">Price: @sound.price</p>
+                        <a href="/soundïnfomation/1" class="btn btn-primary">Press here to see details</a>
                     </div>
                 </div>
             </div>

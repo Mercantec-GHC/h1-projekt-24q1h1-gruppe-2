@@ -107,6 +107,74 @@ namespace Domain_Models
                 favorite = false,
             });
 
+            AllItemdata.Add(new Sound
+            {
+                id = 7,
+                name = "A Love Supreme",
+                artist = "John Coltrane",
+                condition = "Very Good",
+                speed = "33 RPM",
+                size = "12''",
+                year = 1965,
+                price = 200,
+                genre = "Jazz, Avant-Garde Jazz",
+                album = "A Love Supreme",
+                brand = "Impulse! Records",
+                tracks = "Acknowledgement, Resolution, Pursuance, Psalm",
+                favorite = false,
+            });
+
+            AllItemdata.Add(new Sound
+            {
+                id = 8,
+                name = "Led Zeppelin IV",
+                artist = "Led Zeppelin",
+                condition = "Good",
+                speed = "33 RPM",
+                size = "12''",
+                year = 1971,
+                price = 120,
+                genre = "Hard Rock, Blues Rock",
+                album = "Led Zeppelin IV",
+                brand = "Atlantic Records",
+                tracks = "Black Dog, Rock and Roll, The Battle of Evermore, Stairway to Heaven, Misty Mountain Hop, Four Sticks, Going to California, When the Levee Breaks",
+                favorite = true,
+            });
+
+            AllItemdata.Add(new Sound
+            {
+                id = 9,
+                name = "Pet Sounds",
+                artist = "The Beach Boys",
+                condition = "Near Mint",
+                speed = "33 RPM",
+                size = "12''",
+                year = 1966,
+                price = 180,
+                genre = "Rock, Pop",
+                album = "Pet Sounds",
+                brand = "Capitol Records",
+                tracks = "Wouldn't It Be Nice, You Still Believe in Me, That's Not Me, Don't Talk (Put Your Head on My Shoulder), I'm Waiting for the Day, Let's Go Away for Awhile, Sloop John B, God Only Knows, I Know There's an Answer, Here Today, I Just Wasn't Made for These Times, Pet Sounds, Caroline, No",
+                favorite = false,
+            });
+
+            AllItemdata.Add(new Sound
+            {
+                id = 10,
+                name = "Rumours",
+                artist = "Fleetwood Mac",
+                condition = "Excellent",
+                speed = "33 RPM",
+                size = "12''",
+                year = 1977,
+                price = 220,
+                genre = "Rock, Pop Rock",
+                album = "Rumours",
+                brand = "Warner Bros. Records",
+                tracks = "Second Hand News, Dreams, Never Going",
+                favorite = false,
+
+            });
 
             return AllItemdata;
         }
