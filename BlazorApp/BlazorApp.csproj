@@ -24,4 +24,8 @@
     <Folder Include="wwwroot\assets\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Domain Models\Domain Models.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -71,30 +71,31 @@ Embrace the magic of music's past and present as you explore our eclectic range 
 
 <h1>All products</h1>
 
-<div class="card" style="width: 18rem;">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+
+<div class="container">
+    <div class="row">
+        @foreach (var sound in soundsToShow)
+        {
+            <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">@sound.name</h5>
+                        <p class="card-text">@sound.tracks</p>
+                        <a href="Product/@sound.id" class="btn btn-primary">Go to see @sound.name</a>
+                    </div>
+                </div>
+            </div>
+        }
     </div>
 </div>
 
-<div class="card" style="width: 18rem;">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-</div>
 
-<div class="card" style="width: 18rem;">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-</div>
+@code {
+    List<Sound> soundsToShow;
 
+    protected override void OnInitialized()
+    {
+        soundsToShow = allSounds;
+    }
+}

@@ -22,8 +22,92 @@ namespace Domain_Models
                 tracks = "Sunday, Old Folks, Willow Weep For Me, I Got Rhythm, Exactly Like You, Sett Call",
                 favorite = false,
             });
+            AllItemdata.Add(new Sound
+            {
+                id = 2,
+                name = "Take the 'A' Train",
+                artist = "Billy Strayhorn",
+                condition = "VG+",
+                speed = "33 RPM",
+                size = "12''",
+                year = 1961,
+                price = 250,
+                genre = "Jazz",
+                album = "Take the 'A' Train",
+                brand = "Blue Note",
+                tracks = "Take the 'A' Train, Cheek to Cheek, What Is This Thing Called Love?, I Can't Get Started, St. Louis Blues",
+                favorite = true,
+            });
 
-      
+            AllItemdata.Add(new Sound
+            {
+                id = 3,
+                name = "Kind of Blue",
+                artist = "Miles Davis",
+                condition = "MINT",
+                speed = "33 RPM",
+                size = "12''",
+                year = 1959,
+                price = 500,
+                genre = "Jazz, Modal Jazz",
+                album = "Kind of Blue",
+                brand = "Columbia",
+                tracks = "So What, Flamenco Sketches, Blue in Green, All Blues, I Love You So",
+                favorite = true,
+            });
+
+            AllItemdata.Add(new Sound
+            {
+                id = 4,
+                name = "A Love Supreme",
+                artist = "John Coltrane",
+                condition = "VG++",
+                speed = "33 RPM",
+                size = "12''",
+                year = 1965,
+                price = 450,
+                genre = "Jazz, Modal Jazz",
+                album = "A Love Supreme",
+                brand = "Impulse!",
+                tracks = "Acknowledgement, Resolution, Pursuance, Psalm, Love Supreme",
+                favorite = true,
+            });
+
+            AllItemdata.Add(new Sound
+            {
+                id = 5,
+                name = "Giant Steps",
+                artist = "John Coltrane",
+                condition = "MINT",
+                speed = "33 RPM",
+                size = "12''",
+                year = 1960,
+                price = 550,
+                genre = "Jazz, Modal Jazz",
+                album = "Giant Steps",
+                brand = "Atlantic",
+                tracks = "Giant Steps, Countdown, Naima, Mr. P.C., Cousin Mary",
+                favorite = true,
+            });
+
+            AllItemdata.Add(new Sound
+            {
+                id = 6,
+                name = "Blue Train",
+                artist = "John Coltrane",
+                condition = "VG+",
+                speed = "33 RPM",
+                size = "12''",
+                year = 1957,
+                price = 300,
+                genre = "Jazz",
+                album = "Blue Train",
+                brand = "Blue Note",
+                tracks = "Blue Train, Moment's Notice, Locomotion, I Want to Talk About You, Lulu's Back in Town",
+                favorite = false,
+            });
+
+
             return AllItemdata;
         }
         public List<Sellers> GenerateSellersUsers()
