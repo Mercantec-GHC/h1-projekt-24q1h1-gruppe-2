@@ -6,28 +6,29 @@ namespace Domain_Models
     {
         public int soundId { get; set; }
         public string url { get; set; }
-        public string Name {  get; set; }
-        public string Condition { get; set; }
-        public string Speed { get; set; }
-        public string Tracks { get; set; }
-        public string Size { get; set; }
-        public int Year { get; set; }
-        public int Price { get; set; }
-        public string Genre { get; set; }
-        public string Brand { get; set; }
-        public string Album { get; set; }
-        public string Artist { get; set; }
-        public bool Favorite { get; set; }
-        public string Description { get; set; }
-        public string Type { get; set; }
+        public string name {  get; set; }
+        public string condition { get; set; }
+        public string speed { get; set; }
+        public string tracks { get; set; }
+        public string size { get; set; }
+        public int year { get; set; }
+        public int price { get; set; }
+        public string genre { get; set; }
+        public string brand { get; set; }
+        public string album { get; set; }
+        public string artist { get; set; }
+        public bool favorite { get; set; }
+        public string description { get; set; }
+        public string type { get; set; }
+        public List<string> image { get; set; }
 
-        public Sound(string Name, string Condition, string Speed, string Tracks, int Price )
+        public Sound(string name, string condition, string speed, string tracks, int price )
         {
-            this.Name = Name ;
-            this.Condition = Condition ;
-            this.Speed = Speed ;
-            this.Tracks = Tracks ;
-            this.Price = Price ;
+            this.name = name ;
+            this.condition = condition ;
+            this.speed = speed ;
+            this.tracks = tracks ;
+            this.price = price ;
 
         }
         public virtual void DisplaySound()
@@ -35,14 +36,28 @@ namespace Domain_Models
             Console.WriteLine("----------------------------------------");
             Console.WriteLine($"This classical is called ");
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine($);
+            Console.WriteLine($"{this.name}");
+            Console.ResetColor();
+            Console.WriteLine($"It is in this condition:");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine($"{this.condition}");
+            Console.ResetColor();
+            Console.WriteLine($"The speed of the track is:");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine($"{this.speed}");
+            Console.ResetColor();
+            Console.WriteLine($"Here is a list of the tracks that are includede:");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine($"{this.tracks}");
+            Console.WriteLine($"The price of the item:");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine($"{this.price}");
         }
 
     }
 
-    public abstract class Sound : 
 
-    public abstract class Kassettebånd
+    public class Kassettebånd
     {
         public string kind { get; set; }
 

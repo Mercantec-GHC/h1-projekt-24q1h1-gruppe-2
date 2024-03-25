@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace User
+namespace Domain_Models
 {
     public class Sellers
     {
