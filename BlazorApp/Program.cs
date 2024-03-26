@@ -1,5 +1,8 @@
 using BlazorApp.Components;
 using Domain_Models;
+using Service;
+
+
 namespace BlazorApp
 {
     public class Program
@@ -12,8 +15,8 @@ namespace BlazorApp
 
             //GetAllSounds from Postgres DB
             IConfiguration Configuration = builder.Configuration;
-            string connectionString = Configuration.GetConnectionString("DefaultConnection") ?? Environment.GetEnvironmentVariables("DefaultConnection");
-            builder.Services.AddSingleton<List<Sound>>(sp =>new DataBaseServive(connectionString).GetAllVehicles());
+            string connectionString = Configuration.GetConnectionString("DefaultConnection") ?? Environment.GetEnvironmentVariable("DefaultConnection");
+            builder.Services.AddSingleton<List<Sound>>(sp =>new Service.DatabaseService(connectionString).GetAllItemData());
 
             // Add services to the container.
             builder.Services.AddRazorComponents()

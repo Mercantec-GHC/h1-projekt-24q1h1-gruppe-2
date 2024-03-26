@@ -2,8 +2,9 @@
 using Npgsql;
 using System.Buffers;
 using System;
+using Domain_Models;
 
-namespace BlazorApp.Service
+namespace Service
 {
     public class DatabaseService
     {
@@ -28,19 +29,20 @@ namespace BlazorApp.Service
                         {
                             var type = reader["type"].ToString();
 
-                            allSounds.Add(new Sound(
-                                    reader["Name"].ToString(),
-                                    reader["Artist"].ToString(),
-                                    reader["Condition"].ToString(),
-                                    Convert.ToInt32(reader["Speed"]),
-                                    Convert.ToInt32(reader["Size"]),
-                                    Convert.ToInt32(reader["Year"]),
-                                    Convert.ToInt32(reader["Price"]),
-                                    reader["Genre"].ToString(),
-                                    reader["Album"].ToString(),
-                                    reader["Brand"].ToString(),
-                                    reader["Tracks"].ToString()
-                                    ));
+                            allSounds.Add(new Sound()
+                            {
+                                    name = reader["Name"].ToString(),
+                                    artist = reader["Artist"].ToString(),
+                                    condition = reader["Condition"].ToString(),
+                                    speed = reader["speed"].ToString(),
+                                    size = reader["size"].ToString(),
+                                    year = Convert.ToInt32(reader["Year"]),
+                                    price = Convert.ToInt32(reader["Price"]),
+                                    genre = reader["Genre"].ToString(),
+                                    album = reader["Album"].ToString(),
+                                    brand = reader["Brand"].ToString(),
+                                    tracks = reader["Tracks"].ToString()
+                            });
 
                         };
                                     
