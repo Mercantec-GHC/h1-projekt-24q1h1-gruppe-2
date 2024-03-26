@@ -1,8 +1,26 @@
-﻿
+﻿using Npgsql;
+
 namespace Domain_Models
 {
     public class Itemdata
     {
+        public void InsertDummyDataIntoDB(List<Sound> AllItemdata)
+        {
+            string connectionString = "";
+            using var connection = new NpgsqlConnection(connectionString);
+            connection.Open();
+            using (var cmd = new NpgsqlCommand())
+            {
+                cmd.Connection = connection;
+
+                foreach (var sound in AllItemdata) 
+                {
+                    string insertCommand = $@"INSERT INTO Sounds";
+                    cmd.CommandText = insertCommand;
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
         public List<Sound> GenerateItemDataItems()
         {
             List<Sound> AllItemdata = new List<Sound>();

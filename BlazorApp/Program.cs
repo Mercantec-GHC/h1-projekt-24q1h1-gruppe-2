@@ -10,6 +10,10 @@ namespace BlazorApp
 
             builder.Services.AddSingleton<List<Sound>>(sp => new Itemdata().GenerateItemDataItems());
 
+            //GetAllSounds from Postgres DB
+            IConfiguration Configuration = builder.Configuration;
+            string connectionString = Configuration.GetConnectionString("DefaultConnection") ?? Environment.GetEnvironmentVariables("DefaultConnection");
+            builder.Services.AddSingleton<List<Sound>>(sp =>new DataBaseServive(connectionString).GetAllVehicles());
 
             // Add services to the container.
             builder.Services.AddRazorComponents()
