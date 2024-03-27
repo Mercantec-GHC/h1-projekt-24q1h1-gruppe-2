@@ -27,7 +27,6 @@ namespace Service
                     {
                         while (reader.Read())
                         {
-                            var type = reader["type"].ToString();
 
                             allSounds.Add(new Sound()
                             {
