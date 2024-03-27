@@ -72,3 +72,62 @@ main {
         right: 0.75rem;
         top: 0.5rem;
     }
+
+
+    /* Footer styles */
+/* Footer styles */
+footer {
+    background-color: #f8f9fa; /* Light gray background */
+    padding: 40px 0; /* Padding top and bottom */
+}
+
+/* Center the content in medium and large screens */
+@media (min-width: 768px) {
+    footer {
+        text-align: center;
+    }
+}
+
+/* Border on top */
+.border-top {
+    border-top: 1px solid #dee2e6; /* Light gray border */
+}
+
+/* Bootstrap logo */
+.bi {
+    fill: currentColor;
+    vertical-align: text-bottom;
+}
+
+/* List styles */
+.nav {
+    padding-left: 0;
+    list-style: none;
+}
+
+.nav-item {
+    margin-bottom: 10px; /* Spacing between list items */
+}
+
+/* Link styles */
+.nav-link {
+    color: #6c757d; /* Gray text color */
+    text-decoration: none;
+    transition: color 0.3s; /* Smooth color transition */
+}
+
+    .nav-link:hover {
+        color: deepskyblue; /* Dark gray text color on hover */
+    }
+
+/* Heading styles */
+h5 {
+    margin-bottom: 20px; /* Spacing below headings */
+    font-weight: bold;
+    color: #212529; /* Dark gray heading color */
+}
+
+/* Secondary text color */
+.text-body-secondary {
+    color: #6c757d; /* Gray text color */
+}

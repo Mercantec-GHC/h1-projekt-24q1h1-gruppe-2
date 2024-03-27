@@ -19,7 +19,7 @@ namespace Service
             {
                 connection.Open();
 
-                string sql = "SELECT Name, Artist, Condition, Speed, Size, Year, Price, Genre, Album, Brand, Tracks FROM Sounds ";
+                string sql = "SELECT id, Name, Artist, Condition, Speed, Size, Year, Price, Genre, Album, Brand, Tracks FROM Sounds ";
 
                 using (NpgsqlCommand command = new NpgsqlCommand(sql, connection))
                 {
@@ -30,6 +30,7 @@ namespace Service
 
                             allSounds.Add(new Sound()
                             {
+                                    id = Convert.ToInt32(reader["Id"]),
                                     name = reader["Name"].ToString(),
                                     artist = reader["Artist"].ToString(),
                                     condition = reader["Condition"].ToString(),
