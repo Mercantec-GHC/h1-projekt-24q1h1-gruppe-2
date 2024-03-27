@@ -2,35 +2,34 @@
 
 <PageTitle>Sound @id</PageTitle>
 
-<div class="card" style="width: 18rem" >
-    <div class="card-body">
-      <p>
-            Name: @soundToShow.name
-            <br />
-            Artist: @soundToShow.artist
-            <br />
-            Album: @soundToShow.album
-            <br />
-            Condition: @soundToShow.condition
-            <br />
-            Speed: @soundToShow.speed
-            <br />
-            Size: @soundToShow.size
-            <br />
-            Year: @soundToShow.year
-            <br />
-            Price: @soundToShow.price
-            <br />
-            Genre: @soundToShow.genre
-            <br />
-            Brand: @soundToShow.brand
-            <br />
-            Tracks: @soundToShow.tracks
-      </p>
-
-      <a href="/products" class="btn btn-primary">Go back to products</a>
+<div class="container">
+    <div class="card-wrapper">
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">@soundToShow.name</h2>
+                <h4 class="card-subtitle">@soundToShow.artist</h4>
+            </div>
+            <div class="card-body">
+                <ul class="details-list">
+                    <li><strong>Album:</strong> @soundToShow.album</li>
+                    <li><strong>Condition:</strong> @soundToShow.condition</li>
+                    <li><strong>Speed:</strong> @soundToShow.speed</li>
+                    <li><strong>Size:</strong> @soundToShow.size</li>
+                    <li><strong>Year:</strong> @soundToShow.year</li>
+                    <li><strong>Price:</strong> @soundToShow.price</li>
+                    <li><strong>Genre:</strong> @soundToShow.genre</li>
+                    <li><strong>Brand:</strong> @soundToShow.brand</li>
+                    <li><strong>Tracks:</strong> @soundToShow.tracks</li>
+                </ul>
+            </div>
+            <div class="card-footer">
+                <a href="/products" class="btn btn-primary">Go back to products</a>
+            </div>
+        </div>
     </div>
 </div>
+
+
 
 @code {
     [Parameter]
