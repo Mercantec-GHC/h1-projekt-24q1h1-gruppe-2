@@ -27,7 +27,7 @@ namespace Domain_Models
 
 
 
-        public Soundablegadget(string brand, string model, string color, int year, string ItemCondition, int price, string imageUrl, string description)
+        public Soundablegadget(string brand, string model, string color, int year, string condition, int price, string imageUrl, string description)
         {
             this.Url = $"headset/{lastId}";
             GadgetId = lastId++;
@@ -35,7 +35,7 @@ namespace Domain_Models
             this.Year = year;
             this.Model = model;
             this.Color = color;
-            this.ItemCondition = ItemCondition;
+            this.ItemCondition = condition;
             this.Price = price;
             this.ImageUrl = imageUrl;
             this.Description = description;
@@ -61,8 +61,8 @@ namespace Domain_Models
         public bool Kassette { get; set; }
 
 
-        public Bombox(string brand, string model, string color, int year, string ItemCondition, int price, string imageUrl, string description, bool bluetooth, bool cd, bool kassette) 
-            : base(brand, model, color, year, ItemCondition, price, imageUrl, description)
+        public Bombox(string brand, string model, string color, int year, string condition, int price, string imageUrl, string description, bool bluetooth, bool cd, bool kassette) 
+            : base(brand, model, color, year, condition, price, imageUrl, description)
         {
 
         }
@@ -81,8 +81,8 @@ namespace Domain_Models
     public bool Wireless { get; set; }
 
 
-    public Radio(string brand, string model, string color, int year, string ItemCondition, int price, string imageUrl, string description, bool wireless)
-        : base(brand, model, color, year, ItemCondition, price, imageUrl, description)
+    public Radio(string brand, string model, string color, int year, string condition, int price, string imageUrl, string description, bool wireless)
+        : base(brand, model, color, year, condition, price, imageUrl, description)
     {
 
     }
@@ -100,8 +100,8 @@ namespace Domain_Models
         public string Type { get; set; }
 
 
-        public Vinylplayer(string brand, string model, string color, int year, string ItemCondition, int price, string imageUrl, string description, string type)
-            : base(brand, model, color, year, ItemCondition, price, imageUrl, description)
+        public Vinylplayer(string brand, string model, string color, int year, string condition, int price, string imageUrl, string description, string type)
+            : base(brand, model, color, year, condition, price, imageUrl, description)
         {
 
         }
