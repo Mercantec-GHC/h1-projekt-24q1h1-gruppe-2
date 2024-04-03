@@ -2,11 +2,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 90vh;
+    /*padding: 0em 20em 0em 20em;*/
+    margin-top:1em;
 }
 
 .card-wrapper {
-    max-width: 35rem;
+    max-width: 50rem;
 }
 
 .card {
@@ -16,10 +17,11 @@
 }
 
 .card-header {
-    padding: 30px;
+    padding: 20px;
     background-color: antiquewhite; /* Change red to blue */
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
+    text-align: center;
 }
 
 .card-body {
@@ -34,6 +36,7 @@
     background-color: antiquewhite; /* Change red to blue */
     border-bottom-left-radius: 12px;
     border-bottom-right-radius: 12px;
+    
 }
 
 .card-title {
