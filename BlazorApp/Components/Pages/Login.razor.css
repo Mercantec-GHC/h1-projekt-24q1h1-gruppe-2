@@ -1,0 +1,48 @@
+﻿* {
+
+}
+
+.loginContainer{
+    margin: 0 45rem 0 45rem;
+}
+
+.imgIcon {
+}
+
+.signInMessage {
+    font-size: 50px;
+}
+
+.form-floating {
+    
+}
+
+.form-control {
+
+}
+
+
+@media (max-width: 1100px) {
+
+}
+
+@media (max-width: 900px) {
+
+}
+
+@media (max-width: 720px) {
+
+   
+}
+
+@media (max-width: 575px) {
+
+}
+
+@media (max-width: 400px) {
+
+}
+
+@media (max-width: 300px) {
+
+}
