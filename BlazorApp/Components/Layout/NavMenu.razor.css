@@ -2,23 +2,14 @@
     height: 3.5rem;
     background-color: whitesmoke;
 }
-
-
-
  ul {
      font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
      font-size: 1.1rem;
  }
 
- /*p {
-     color: red;
- }
-     */
-
  .navMenuCenter {
     display:contents;
  }
-
 
 @media (max-width: 640.98px) {
     .top-row {
@@ -50,3 +41,20 @@
         right: 0.75rem;
         top: 0.5rem;
     }
+
+.btn1 {
+    background: #75fa90;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    border-radius: .25rem;
+    transition: color .15s, background-color .15s, border-color .15s, box-shadow .15s;
+}
+.btn2 {
+    background: #ffc107;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    border-radius: .25rem;
+    transition: color .15s, background-color .15s, border-color .15s, box-shadow .15s;
+}

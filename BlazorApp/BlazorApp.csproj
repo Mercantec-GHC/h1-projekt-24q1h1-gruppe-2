@@ -16,6 +16,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Remove="Components\Pages\Care.razor" />
+    <Content Remove="Components\Pages\Giftcards.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.5" />
     <PackageReference Include="Npgsql" Version="8.0.2" />
   </ItemGroup>
