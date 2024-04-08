@@ -1,21 +1,14 @@
-﻿::selection {
-    background: #4158d0;
-    color: #fff;
+﻿body {
+    display: flex;
+    justify-content: center;
 }
-
-<<<<<<< HEAD
 .wrapper {
     margin: 2em 45rem 2em 45rem;
     width: 380px;
     background: #fff;
     border-radius: 15px;
     box-shadow: 0px 15px 20px rgba(0,0,0,0.1);
-=======
-.loginContainer{
-    margin: 0 45rem 0 45rem;
->>>>>>> parent of 541591c (Login/registration-update)
 }
-
     .wrapper .title {
         font-size: 35px;
         font-weight: 600;
@@ -139,12 +132,6 @@ form .signup-link {
             text-decoration: underline;
         }
 
-body {
-    display: flex;
-    justify-content: center;
-}
 
-h2 {
 
-}
 
