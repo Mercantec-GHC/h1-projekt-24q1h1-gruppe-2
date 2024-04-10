@@ -2,6 +2,7 @@ CREATE TABLE sounds
 (
 	  id SERIAL  PRIMARY KEY,
 	  Name TEXT,
+	  Url TEXT,
 	  Artist TEXT,
 	  Condition TEXT, 
 	  Speed TEXT,
