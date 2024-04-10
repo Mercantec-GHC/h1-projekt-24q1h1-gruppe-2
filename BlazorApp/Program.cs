@@ -11,8 +11,6 @@ namespace BlazorApp
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            builder.Services.AddSingleton<List<Sound>>(sp => new Itemdata().GenerateItemDataItems());
-
             //GetAllSounds from Postgres DB
             IConfiguration Configuration = builder.Configuration;
             string connectionString = Configuration.GetConnectionString("DefaultConnection") ?? Environment.GetEnvironmentVariable("DefaultConnection");
