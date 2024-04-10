@@ -15,6 +15,8 @@ namespace BlazorApp
             IConfiguration Configuration = builder.Configuration;
             string connectionString = Configuration.GetConnectionString("DefaultConnection") ?? Environment.GetEnvironmentVariable("DefaultConnection");
             builder.Services.AddSingleton<List<Sound>>(sp =>new Service.DatabaseService(connectionString).GetAllItemData());
+            builder.Services.AddSingleton<List<Soundablegadget>>(sp =>new Service.DatabaseService2(connectionString).GetAllSoundablegadgets());
+
 
             // Add services to the container.
             builder.Services.AddRazorComponents()

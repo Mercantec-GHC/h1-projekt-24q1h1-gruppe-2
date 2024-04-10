@@ -2,9 +2,8 @@
 using Npgsql;
 using System.Buffers;
 using System;
-using Domain_Models;
 
-namespace BlazorApp.Components.Service
+namespace Service
 {
     public class DatabaseService2
     {
@@ -19,7 +18,7 @@ namespace BlazorApp.Components.Service
             {
                 connection.Open();
 
-                string sql = "SELECT Brand, Model, Color, Year, Condition, Price, Size, Year, Price, ImageUrl, Description, Bluetooth, Cd, Kassette FROM Soundsablegadets";
+                string sql = "SELECT Brand, Model, Color, Year, Condition, Price, Size, ImageUrl, Description, Bluetooth, Cd, type, Kassette FROM soundablegagdet";
 
                 using (NpgsqlCommand command = new NpgsqlCommand(sql, connection))
                 {
