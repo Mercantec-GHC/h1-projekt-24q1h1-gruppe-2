@@ -1,0 +1,50 @@
+﻿@page "/NotHomeRoute"
+
+
+<PageTitle>Soundable Gagdets</PageTitle>
+
+<h1>We currently have @soundGagdetsToShow.Count cars in our system</h1>
+
+<select @bind="SelectedColor" class="form-select">
+    <option>Select a color</option>
+    <option>Black</option>
+    <option>Red</option>
+    <option>White</option>
+    <option>Blue</option>
+</select>
+
+<button class="btn btn-primary" onclick="() => FilterAndUpdateSoundablegadgets()">Click me</button>
+
+@foreach (Soundablegadget soundgadget in soundGagdetsToShow)
+{
+    <SoundableGadgetCard soundablegagdet="soundgagdet"></SoundableGadgetCard>
+}
+@code {
+    public string SelectedColor;
+
+    public List<Soundablegadget> soundGagdetsToShow;
+    private string connectionString;
+
+    protected override void OnInitialized()
+    {
+        soundGagdetsToShow = AllSoundablegadgets;
+    }
+
+    public void FilterAndUpdateSoundablegadgets()
+    {
+        soundGagdetsToShow = FilterColor(AllSoundablegadgets, SelectedColor);
+    }
+
+    public List<Soundablegadget> FilterColor(List<Soundablegadget> AllSoundablegadgets, string colorFilter)
+    {
+        if (colorFilter != "")
+        {
+            soundGagdetsToShow = AllSoundablegadgets.Where(soundgagdet => soundgagdet.Color.ToUpper() == colorFilter.ToUpper()).ToList();
+        } else
+        {
+            soundGagdetsToShow = AllSoundablegadgets;
+        }
+
+        return soundGagdetsToShow;
+    }
+}

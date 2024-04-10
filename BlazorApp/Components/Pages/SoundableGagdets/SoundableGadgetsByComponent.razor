@@ -1,0 +1,29 @@
+﻿@page "/soundablegadget/{GadgetId}"
+
+<PageTitle>Soundable Gadgets</PageTitle>
+
+@if (SoundablegadgetsToShow is Bombox bombox)
+{
+    <Bomboxpage Bombox="Bombox"></Bomboxpage>
+}
+@if (SoundablegadgetsToShow is Radio radio)
+{
+    <Radiopage Bombox="Radio"></Radiopage>
+}
+@if (SoundablegadgetsToShow is Vinylplayer vinylplayer)
+{
+    <Vinylplayerpage Bombox="Vinylplayer"></Vinylplayerpage>
+}
+
+
+@code {
+    [Parameter]
+    public string GagdetId { get; set; }
+    public Soundablegadget SoundablegadgetsToShow;
+
+    protected override void OnInitialized()
+    {
+        int idToFind = Int32.Parse(GagdetId);
+        SoundablegadgetsToShow = AllSoundablegadgets.Find(x => x.GadgetId == idToFind);
+    }
+}

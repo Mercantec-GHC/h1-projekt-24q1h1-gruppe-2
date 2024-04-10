@@ -1,0 +1,21 @@
+CREATE TABLE soundablegagdet (
+  id SERIAL  PRIMARY KEY,
+  Brand TEXT,
+  Url TEXT,
+  Model TEXT, 
+  Name TEXT,
+  Color TEXT,
+  Condition TEXT, 
+  Type TEXT,
+  Size TEXT,
+  Year INTEGER,
+  Price INTEGER,
+  ImageUrl TEXT,
+  Genre TEXT,
+  Description TEXT, 
+  Bluetooth TEXT, 
+  Cd TEXT, 
+  Kassette TEXT, 
+  Wireless TEXT,
+  TypeofVinyl TEXT
+);
