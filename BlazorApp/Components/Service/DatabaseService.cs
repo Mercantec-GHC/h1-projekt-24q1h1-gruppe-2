@@ -19,7 +19,7 @@ namespace Service
             {
                 connection.Open();
 
-                string sql = "SELECT id, Name, Url, Artist, Condition, Speed, Size, Year, Price, Genre, Album, Brand, Tracks FROM Sounds ";
+                string sql = "SELECT Name, Url, Artist, Condition, Speed, Size, Year, Price, Genre, Album, Brand, Tracks FROM Sounds ";
 
                 using (NpgsqlCommand command = new NpgsqlCommand(sql, connection))
                 {
