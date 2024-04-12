@@ -59,3 +59,12 @@
     border-radius: .25rem;
     transition: color .15s, background-color .15s, border-color .15s, box-shadow .15s;
 }
+
+.btn3 {
+    background: #15f5ee;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    border-radius: .25rem;
+    transition: color .15s, background-color .15s, border-color .15s, box-shadow .15s;
+}
