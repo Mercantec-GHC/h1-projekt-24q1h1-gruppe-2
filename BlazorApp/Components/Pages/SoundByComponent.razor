@@ -1,13 +1,14 @@
 ﻿@page "/vinyl/{id}"
 
 <PageTitle>Sound @id</PageTitle>
-<br /><br /><br /><br /><br /><br /><br /><br />
+
 <div class="container">
     <div class="card-wrapper">
         <div class="card">
             <div class="card-header">
                 <h2 class="card-title">@soundToShow.name</h2>
                 <h4 class="card-subtitle">@soundToShow.artist</h4>
+                <img src="@soundToShow.url" class="img-fluid">
             </div>
             <div class="card-body">
                 <ul class="details-list">
@@ -20,6 +21,7 @@
                     <li><strong>Genre:</strong> @soundToShow.genre</li>
                     <li><strong>Brand:</strong> @soundToShow.brand</li>
                     <li><strong>Tracks:</strong> @soundToShow.tracks</li>
+                    <li><strong>Description:</strong> @soundToShow.description</li>
                 </ul>
             </div>
             <div class="card-footer">
@@ -28,9 +30,6 @@
         </div>
     </div>
 </div>
-
-
-
 
 @code {
     [Parameter]

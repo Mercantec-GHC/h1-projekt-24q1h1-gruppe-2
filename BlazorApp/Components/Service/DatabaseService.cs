@@ -19,7 +19,7 @@ namespace Service
             {
                 connection.Open();
 
-                string sql = "SELECT id, Name, url, Artist, Condition, Speed, Size, Year, Price, Genre, Album, Brand, Tracks FROM Sounds order by id";
+                string sql = "SELECT id, Name, url, Artist, Condition, Speed, Size, Year, Price, Genre, Album, Brand, Tracks, Description FROM Sounds order by id";
 
                 using (NpgsqlCommand command = new NpgsqlCommand(sql, connection))
                 {
@@ -42,7 +42,8 @@ namespace Service
                                     genre = reader["Genre"].ToString(),
                                     album = reader["Album"].ToString(),
                                     brand = reader["Brand"].ToString(),
-                                    tracks = reader["Tracks"].ToString()
+                                    tracks = reader["Tracks"].ToString(),
+                                    description = reader["Description"].ToString()
                             });
 
                         };
