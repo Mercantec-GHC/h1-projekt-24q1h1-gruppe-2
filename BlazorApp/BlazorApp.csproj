@@ -18,6 +18,7 @@
   <ItemGroup>
     <Content Remove="Components\Pages\Care.razor" />
     <Content Remove="Components\Pages\Giftcards.razor" />
+    <Content Remove="Components\Pages\Sell.razor" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,0 +1,122 @@
+﻿@page "/SellProduct"
+@inject NavigationManager Navigation
+@inject IWebHostEnvironment _hostingEnvironment
+@inject List<Sound> allSounds
+@inject List<Soundablegadget> AllSoundablegadgets
+ 
+<h1>Sell Your Vinyl Record Here!</h1>
+<br />
+ 
+<body>
+    <div class="container">
+        <div class="title">Register Your Product</div>
+        <div class="content">
+            <form action="#">
+                <div class="user-details">
+                    <div class="input-box">
+                        <span class="details">Name</span>
+                        <input type="text" @bind="name" placeholder="Enter Title Here" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Condition</span>
+                        <select id="bad" required>
+                            <option value="mint">Mint</option>
+                            <option value="excellent">Excellent</option>
+                            <option value="veryGood">Very Good</option>
+                            <option value="good">Good</option>
+                            <option value="fairPoor">Fair/Poor</option>
+                        </select>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Genre</span>
+                        <input type="text" @bind="genre" placeholder="Genre" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Year</span>
+                        <select id="year" @bind="year" placeholder="Published" required>
+                            <option value="">Year</option>
+                            @for (int year = 1920; year <= DateTime.Now.Year; year++)
+                            {
+                                <option value="@year">@year</option>
+                            }
+                            </select>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Artist</span>
+                        <input type="text" @bind="artist" placeholder="Artist" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Album</span>
+                        <input type="text" @bind="album" placeholder="Album" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Tracks</span>
+                        <input type="text" @bind="tracks" placeholder="Tracks" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Speed</span>
+                        <input type="text" @bind="speed" placeholder="In revolutions per minute (rpm)" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Size</span>
+                        <input type="text" @bind="size" placeholder="In Inches (7-10-12..)" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Price</span>
+                        <input type="text" @bind="price" placeholder="Full Price" required>
+                    </div>
+                </div>
+                <div class="button">
+                    <input type="submit" value="Register">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+
+@code {
+        public string name {  get; set; }
+        public string condition { get; set; }
+        public string speed { get; set; }
+        public string tracks { get; set; }
+        public string size { get; set; }
+        public int year { get; set; }
+        public int price { get; set; }
+        public string genre { get; set; }
+        public string album { get; set; }
+        public string artist { get; set; }
+}
+
+
+public void submit ()
+{
+     string connectionString = ".........";
+            using var connection = new NpgsqlConnection(connectionString);
+            connection.Open();
+            using (var cmd = new NpgsqlCommand())
+            {
+                cmd.Connection = connection;
+
+                @*cmd.CommandText = @"*@
+            INSERT INTO Sound(name, condition, speed, year, tracks, size, price, genre, album, artist)
+            VALUES(@name, @condition, @speed, @year, @tracks, @size,@price, @genre, @album, @artist);";
+
+                cmd.Parameters.AddWithValue("name", name ?? (object)DBNull.Value);
+                cmd.Parameters.AddWithValue("condition", condition ?? (object)DBNull.Value);
+                cmd.Parameters.AddWithValue("speed", ´speed ?? (object)DBNull.Value);
+                cmd.Parameters.AddWithValue("year", year ?? (object)DBNull.Value);
+                cmd.Parameters.AddWithValue("tracks", tracks ?? (object)DBNull.Value);
+                cmd.Parameters.AddWithValue("size", size ?? (object)DBNull.Value);
+                cmd.Parameters.AddWithValue("price", price ?? (object)DBNull.Value);
+                cmd.Parameters.AddWithValue("genre", genre ?? (object)DBNull.Value);
+                cmd.Parameters.AddWithValue("album", album ?? (object)DBNull.Value);
+                cmd.Parameters.AddWithValue("artist", artist ?? (object)DBNull.Value);
+
+                cmd.ExecuteNonQuery();
+            }
+            @*NavigationManager.NavigateTo("/login");*@
+        }
+    }
+}
+
