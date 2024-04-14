@@ -15,7 +15,7 @@
                 <div class="user-details">
                     <div class="input-box">
                         <span class="details">Name</span>
-                        <input type="text" @bind="name" placeholder="Enter Title Here" required>
+                        <input type="text" @bind="Name" placeholder="Enter Title Here" required>
                     </div>
                     <div class="input-box">
                         <span class="details">Condition</span>
@@ -29,11 +29,11 @@
                     </div>
                     <div class="input-box">
                         <span class="details">Genre</span>
-                        <input type="text" @bind="genre" placeholder="Genre" required>
+                        <input type="text" @bind="Genre" placeholder="Genre" required>
                     </div>
                     <div class="input-box">
                         <span class="details">Year</span>
-                        <select id="year" @bind="year" placeholder="Published" required>
+                        <select id="year" @bind="Year" placeholder="Published" required>
                             <option value="">Year</option>
                             @for (int year = 1920; year <= DateTime.Now.Year; year++)
                             {
@@ -43,27 +43,27 @@
                     </div>
                     <div class="input-box">
                         <span class="details">Artist</span>
-                        <input type="text" @bind="artist" placeholder="Artist" required>
+                        <input type="text" @bind="Artist" placeholder="Artist" required>
                     </div>
                     <div class="input-box">
                         <span class="details">Album</span>
-                        <input type="text" @bind="album" placeholder="Album" required>
+                        <input type="text" @bind="Album" placeholder="Album" required>
                     </div>
                     <div class="input-box">
                         <span class="details">Tracks</span>
-                        <input type="text" @bind="tracks" placeholder="Tracks" required>
+                        <input type="text" @bind="Tracks" placeholder="Tracks" required>
                     </div>
                     <div class="input-box">
                         <span class="details">Speed</span>
-                        <input type="text" @bind="speed" placeholder="In revolutions per minute (rpm)" required>
+                        <input type="text" @bind="Speed" placeholder="In revolutions per minute (rpm)" required>
                     </div>
                     <div class="input-box">
                         <span class="details">Size</span>
-                        <input type="text" @bind="size" placeholder="In Inches (7-10-12..)" required>
+                        <input type="text" @bind="Size" placeholder="In Inches (7-10-12..)" required>
                     </div>
                     <div class="input-box">
                         <span class="details">Price</span>
-                        <input type="text" @bind="price" placeholder="Full Price" required>
+                        <input type="text" @bind="Price" placeholder="Full Price" required>
                     </div>
                 </div>
                 <div class="button">
@@ -76,19 +76,19 @@
 
 
 @code {
-        public string name {  get; set; }
-        public string condition { get; set; }
-        public string speed { get; set; }
-        public string tracks { get; set; }
-        public string size { get; set; }
-        public int year { get; set; }
-        public int price { get; set; }
-        public string genre { get; set; }
-        public string album { get; set; }
-        public string artist { get; set; }
+        public string Name {  get; set; }
+        public string Condition { get; set; }
+        public string Speed { get; set; }
+        public string Tracks { get; set; }
+        public string Size { get; set; }
+        public int Year { get; set; }
+        public int Price { get; set; }
+        public string Genre { get; set; }
+        public string Album { get; set; }
+        public string Artist { get; set; }
 }
 
-
+@* 
 public void submit ()
 {
      string connectionString = ".........";
@@ -96,11 +96,14 @@ public void submit ()
             connection.Open();
             using (var cmd = new NpgsqlCommand())
             {
-                cmd.Connection = connection;
+                cmd.Connection = connection;*@
 
-                @*cmd.CommandText = @"*@
+                @* cmd.CommandText = @" *@
+@*
+
             INSERT INTO Sound(name, condition, speed, year, tracks, size, price, genre, album, artist)
-            VALUES(@name, @condition, @speed, @year, @tracks, @size,@price, @genre, @album, @artist);";
+            VALUES(@n
+            ame, @condition, @speed, @year, @tracks, @size, @price, @genre, @album, @artist);";
 
                 cmd.Parameters.AddWithValue("name", name ?? (object)DBNull.Value);
                 cmd.Parameters.AddWithValue("condition", condition ?? (object)DBNull.Value);
@@ -113,10 +116,15 @@ public void submit ()
                 cmd.Parameters.AddWithValue("album", album ?? (object)DBNull.Value);
                 cmd.Parameters.AddWithValue("artist", artist ?? (object)DBNull.Value);
 
-                cmd.ExecuteNonQuery();
+                cmd.ExecuteNonQuery(); *@
             }
             @*NavigationManager.NavigateTo("/login");*@
+
+
+            @*
         }
     }
-}
+} 
 
+
+*@
