@@ -1,5 +1,7 @@
 ﻿@page "/SellProduct"
-@inject NavigationManager Navigation
+@using Npgsql
+@using System.Drawing
+@inject NavigationManager NavigationManager
 @inject IWebHostEnvironment _hostingEnvironment
 @inject List<Sound> allSounds
 @inject List<Soundablegadget> AllSoundablegadgets
@@ -88,43 +90,45 @@
         public string Artist { get; set; }
 }
 
-@* 
-public void submit ()
+@code {
+public void Submit()
 {
-     string connectionString = ".........";
+     string connectionString = "Host=ep-icy-king-a5d5u7sc.us-east-2.aws.neon.tech;Username=neondb_owner;Password=wzWv76MaoNOA;Database=neondb;sslmode=require";
             using var connection = new NpgsqlConnection(connectionString);
             connection.Open();
             using (var cmd = new NpgsqlCommand())
             {
-                cmd.Connection = connection;*@
+                cmd.Connection = connection;
 
-                @* cmd.CommandText = @" *@
-@*
+                 cmd.CommandText = @"
+            INSERT INTO sounds(Name, Artist, Condition, Speed, Size, Year, Price, Genre, Album, Tracks)
+            VALUES(@name, @artist, @condition, @speed, @size, @year, @price, @genre, @album, @tracks);";
 
-            INSERT INTO Sound(name, condition, speed, year, tracks, size, price, genre, album, artist)
-            VALUES(@n
-            ame, @condition, @speed, @year, @tracks, @size, @price, @genre, @album, @artist);";
-
-                cmd.Parameters.AddWithValue("name", name ?? (object)DBNull.Value);
-                cmd.Parameters.AddWithValue("condition", condition ?? (object)DBNull.Value);
-                cmd.Parameters.AddWithValue("speed", ´speed ?? (object)DBNull.Value);
-                cmd.Parameters.AddWithValue("year", year ?? (object)DBNull.Value);
-                cmd.Parameters.AddWithValue("tracks", tracks ?? (object)DBNull.Value);
-                cmd.Parameters.AddWithValue("size", size ?? (object)DBNull.Value);
-                cmd.Parameters.AddWithValue("price", price ?? (object)DBNull.Value);
-                cmd.Parameters.AddWithValue("genre", genre ?? (object)DBNull.Value);
-                cmd.Parameters.AddWithValue("album", album ?? (object)DBNull.Value);
-                cmd.Parameters.AddWithValue("artist", artist ?? (object)DBNull.Value);
-
-                cmd.ExecuteNonQuery(); *@
+            cmd.Parameters.AddWithValue("name", Name ?? (object)DBNull.Value);
+            cmd.Parameters.AddWithValue("artist", Artist ?? (object)DBNull.Value);
+            cmd.Parameters.AddWithValue("condition", Condition ?? (object)DBNull.Value);
+            cmd.Parameters.AddWithValue("speed", Speed ?? (object)DBNull.Value);
+            cmd.Parameters.AddWithValue("size", Size ?? (object)DBNull.Value);
+            cmd.Parameters.AddWithValue("year", Year.ToString());
+            cmd.Parameters.AddWithValue("price", Price.ToString());
+            cmd.Parameters.AddWithValue("genre", Genre ?? (object)DBNull.Value);
+            cmd.Parameters.AddWithValue("album", Album ?? (object)DBNull.Value);
+            cmd.Parameters.AddWithValue("tracks", Tracks ?? (object)DBNull.Value);
+            
+             
+                
+              
+               
+               
+                cmd.ExecuteNonQuery();
             }
-            @*NavigationManager.NavigateTo("/login");*@
+            NavigationManager.NavigateTo("/login");
 
 
-            @*
+            
         }
     }
 } 
 
+}
 
-*@
