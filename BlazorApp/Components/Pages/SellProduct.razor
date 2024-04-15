@@ -69,6 +69,10 @@
                         <input type="text" @bind="Price" placeholder="Full Price" required>
                     </div>
                 </div>
+                @if (!string.IsNullOrEmpty(ErrorMessage))
+                    {
+                        <p style="color: red; text-align: center; font-size: 14;">@ErrorMessage</p>
+                    }
                 <div class="button">
                     <input type="submit" @onclick="Submit" value="Register">
                 </div>
@@ -79,21 +83,33 @@
 
 
 @code {
-    public string Name { get; set; }
-    public string Condition { get; set; }
-    public string Speed { get; set; }
-    public string Tracks { get; set; }
-    public string Size { get; set; }
-    public int Year { get; set; }
-    public int Price { get; set; }
-    public string Genre { get; set; }
-    public string Album { get; set; }
-    public string Artist { get; set; }
+    private string? ErrorMessage { get; set; } = "";
+    public string? Name { get; set; }
+    public string? Condition { get; set; }
+    public string? Speed { get; set; }
+    public string? Tracks { get; set; }
+    public string? Size { get; set; }
+    public int? Year { get; set; }
+    public int? Price { get; set; }
+    public string? Genre { get; set; }
+    public string? Album { get; set; }
+    public string? Artist { get; set; }
 
 
 
     public void Submit()
     {
+        ErrorMessage = "";
+
+        if (string.IsNullOrEmpty(Name) || string.IsNullOrEmpty(Condition) || string.IsNullOrEmpty(Speed) ||
+         string.IsNullOrEmpty(Tracks) || string.IsNullOrEmpty(Size) || !Year.HasValue || !Price.HasValue ||
+        string.IsNullOrEmpty(Genre) || string.IsNullOrEmpty(Album) || string.IsNullOrEmpty(Artist))
+        {
+            ErrorMessage = "Couldn't create product, details are missing";
+            return;
+        }
+        else
+        {
         string connectionString = "Host=ep-icy-king-a5d5u7sc.us-east-2.aws.neon.tech;Username=neondb_owner;Password=wzWv76MaoNOA;Database=neondb;sslmode=require";
         using var connection = new NpgsqlConnection(connectionString);
         connection.Open();
@@ -126,7 +142,7 @@
         NavigationManager.NavigateTo("/vinyl");
     }
 }
-
+}
 
 
 
