@@ -5,6 +5,7 @@
 @inject IWebHostEnvironment _hostingEnvironment
 @inject List<Sound> allSounds
 @inject List<Soundablegadget> AllSoundablegadgets
+@using Domain_Models
  
 <h1>Sell Your Vinyl Record Here!</h1>
 <br />
@@ -21,7 +22,7 @@
                     </div>
                     <div class="input-box">
                         <span class="details">Condition</span>
-                        <select id="bad" required>
+                        <select id="condition" @bind="Condition" required>
                             <option value="mint">Mint</option>
                             <option value="excellent">Excellent</option>
                             <option value="veryGood">Very Good</option>
@@ -68,8 +69,12 @@
                         <input type="text" @bind="Price" placeholder="Full Price" required>
                     </div>
                 </div>
+                @if (!string.IsNullOrEmpty(ErrorMessage))
+                    {
+                        <p style="color: red; text-align: center; font-size: 14;">@ErrorMessage</p>
+                    }
                 <div class="button">
-                    <input type="submit" value="Register">
+                    <input type="submit" @onclick="Submit" value="Register">
                 </div>
             </form>
         </div>
@@ -78,57 +83,67 @@
 
 
 @code {
-        public string Name {  get; set; }
-        public string Condition { get; set; }
-        public string Speed { get; set; }
-        public string Tracks { get; set; }
-        public string Size { get; set; }
-        public int Year { get; set; }
-        public int Price { get; set; }
-        public string Genre { get; set; }
-        public string Album { get; set; }
-        public string Artist { get; set; }
-}
-
-@code {
-public void Submit()
-{
-     string connectionString = "Host=ep-icy-king-a5d5u7sc.us-east-2.aws.neon.tech;Username=neondb_owner;Password=wzWv76MaoNOA;Database=neondb;sslmode=require";
-            using var connection = new NpgsqlConnection(connectionString);
-            connection.Open();
-            using (var cmd = new NpgsqlCommand())
-            {
-                cmd.Connection = connection;
-
-                 cmd.CommandText = @"
-            INSERT INTO sounds(Name, Artist, Condition, Speed, Size, Year, Price, Genre, Album, Tracks)
-            VALUES(@name, @artist, @condition, @speed, @size, @year, @price, @genre, @album, @tracks);";
-
-            cmd.Parameters.AddWithValue("name", Name ?? (object)DBNull.Value);
-            cmd.Parameters.AddWithValue("artist", Artist ?? (object)DBNull.Value);
-            cmd.Parameters.AddWithValue("condition", Condition ?? (object)DBNull.Value);
-            cmd.Parameters.AddWithValue("speed", Speed ?? (object)DBNull.Value);
-            cmd.Parameters.AddWithValue("size", Size ?? (object)DBNull.Value);
-            cmd.Parameters.AddWithValue("year", Year.ToString());
-            cmd.Parameters.AddWithValue("price", Price.ToString());
-            cmd.Parameters.AddWithValue("genre", Genre ?? (object)DBNull.Value);
-            cmd.Parameters.AddWithValue("album", Album ?? (object)DBNull.Value);
-            cmd.Parameters.AddWithValue("tracks", Tracks ?? (object)DBNull.Value);
-            
-             
-                
-              
-               
-               
-                cmd.ExecuteNonQuery();
-            }
-            NavigationManager.NavigateTo("/login");
+    private string? ErrorMessage { get; set; } = "";
+    public string? Name { get; set; }
+    public string? Condition { get; set; }
+    public string? Speed { get; set; }
+    public string? Tracks { get; set; }
+    public string? Size { get; set; }
+    public int? Year { get; set; }
+    public int? Price { get; set; }
+    public string? Genre { get; set; }
+    public string? Album { get; set; }
+    public string? Artist { get; set; }
 
 
-            
+
+    public void Submit()
+    {
+        ErrorMessage = "";
+
+        if (string.IsNullOrEmpty(Name) || string.IsNullOrEmpty(Condition) || string.IsNullOrEmpty(Speed) ||
+         string.IsNullOrEmpty(Tracks) || string.IsNullOrEmpty(Size) || !Year.HasValue || !Price.HasValue ||
+        string.IsNullOrEmpty(Genre) || string.IsNullOrEmpty(Album) || string.IsNullOrEmpty(Artist))
+        {
+            ErrorMessage = "Couldn't create product, details are missing";
+            return;
         }
-    }
-} 
+        else
+        {
+        string connectionString = "Host=ep-icy-king-a5d5u7sc.us-east-2.aws.neon.tech;Username=neondb_owner;Password=wzWv76MaoNOA;Database=neondb;sslmode=require";
+        using var connection = new NpgsqlConnection(connectionString);
+        connection.Open();
+        using (var cmd = new NpgsqlCommand())
+        {
+            cmd.Connection = connection;
 
+            cmd.CommandText = @"
+            INSERT INTO sounds(Name, Artist, Condition, Speed, Size, Year, Price, Genre, Album, Tracks)
+            VALUES(@Name, @Artist, @Condition, @Speed, @Size, @Year, @Price, @Genre, @Album, @Tracks);";
+
+            cmd.Parameters.AddWithValue("Name", Name ?? (object)DBNull.Value);
+            cmd.Parameters.AddWithValue("Artist", Artist ?? (object)DBNull.Value);
+            cmd.Parameters.AddWithValue("Condition", Condition ?? (object)DBNull.Value);
+            cmd.Parameters.AddWithValue("Speed", Speed ?? (object)DBNull.Value);
+            cmd.Parameters.AddWithValue("Size", Size ?? (object)DBNull.Value);
+            cmd.Parameters.AddWithValue("Year", Year);
+            cmd.Parameters.AddWithValue("Price", Price);
+            cmd.Parameters.AddWithValue("Genre", Genre ?? (object)DBNull.Value);
+            cmd.Parameters.AddWithValue("Album", Album ?? (object)DBNull.Value);
+            cmd.Parameters.AddWithValue("Tracks", Tracks ?? (object)DBNull.Value);
+
+
+
+
+
+
+            cmd.ExecuteNonQuery();
+        }
+        NavigationManager.NavigateTo("/vinyl");
+    }
 }
+}
+
+
+
 
