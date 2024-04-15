@@ -5,6 +5,6 @@ CREATE TABLE bruger
 	  UserID TEXT,
 	  Email TEXT, 
 	  PhoneNumber INTEGER,
-	  Password TEXT,
+	  Password TEXT
 	 
 );
