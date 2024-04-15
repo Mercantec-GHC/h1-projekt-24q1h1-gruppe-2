@@ -61,7 +61,7 @@ namespace Domain_Models
             }
         }
 
-        public List<Sellers> GenerateSellersUsers()
+       /* public List<Sellers> GenerateSellersUsers()
         {
             List<Sellers> allSellersUsers = new List<Sellers>();
 
@@ -119,7 +119,7 @@ namespace Domain_Models
 
             return allSellersUsers;
 
-        }
+        } */ 
 
     }
 }
