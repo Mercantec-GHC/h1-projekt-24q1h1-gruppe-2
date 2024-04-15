@@ -22,7 +22,7 @@
                     </div>
                     <div class="input-box">
                         <span class="details">Condition</span>
-                        <select id="bad" @bind="Condition" required>
+                        <select id="condition" @bind="Condition" required>
                             <option value="mint">Mint</option>
                             <option value="excellent">Excellent</option>
                             <option value="veryGood">Very Good</option>
@@ -70,7 +70,7 @@
                     </div>
                 </div>
                 <div class="button">
-                    <input @onclick="Submit" value="Register">
+                    <input type="submit" @onclick="Submit" value="Register">
                 </div>
             </form>
         </div>
@@ -124,9 +124,6 @@
             cmd.ExecuteNonQuery();
         }
         NavigationManager.NavigateTo("/vinyl");
-
-
-
     }
 }
 
