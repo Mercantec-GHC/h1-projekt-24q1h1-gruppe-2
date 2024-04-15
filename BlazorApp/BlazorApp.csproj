@@ -27,6 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Components\Pages\SoundableGagdets\NewFolder\" />
     <Folder Include="wwwroot\assets\" />
   </ItemGroup>
 
