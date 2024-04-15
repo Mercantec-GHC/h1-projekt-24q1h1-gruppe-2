@@ -34,7 +34,7 @@
                         </div>
                         <div class="input-box">
                             <span class="details">Phone Number</span>
-                            <input type="text" @bind="PhoneNumber" placeholder="Enter your number" required>
+                            <input type="number" @bind="PhoneNumber" placeholder="Enter your number" required>
                         </div>
                         <div class="input-box">
                             <span class="details">Password</span>
@@ -53,11 +53,11 @@
 
 
 @code {
-    public string FullName { get; set; }
-    public string UserID { get; set; }
-    public string Email { get; set; }
-    public string PhoneNumber { get; set; }
-    public string Password { get; set; }
+    public string? FullName { get; set; }
+    public string? UserID { get; set; }
+    public string? Email { get; set; }
+    public int? PhoneNumber { get; set; }
+    public string? Password { get; set; }
 
     public void SubmitUser()
     {
@@ -75,7 +75,7 @@
             cmd.Parameters.AddWithValue("FullName", FullName ?? (object)DBNull.Value);
             cmd.Parameters.AddWithValue("UserID", UserID ?? (object)DBNull.Value);
             cmd.Parameters.AddWithValue("Email", Email ?? (object)DBNull.Value);
-            cmd.Parameters.AddWithValue("PhoneNumber", PhoneNumber);
+            cmd.Parameters.AddWithValue("PhoneNumber", PhoneNumber ?? (object)DBNull.Value);
             cmd.Parameters.AddWithValue("Password", Password ?? (object)DBNull.Value);
 
 
@@ -86,6 +86,7 @@
 
             cmd.ExecuteNonQuery();
         }
+
         NavigationManager.NavigateTo("/login");
 
 

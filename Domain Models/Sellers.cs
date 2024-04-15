@@ -5,21 +5,13 @@ namespace Domain_Models
 {
     public class Sellers
     {
-        public string Name { get; set; }
-        public string Surname { get; set; }
-        public string UserID { get; set; }
-        public string Email { get; set; }
-        public string PhoneNumber { get; set; }
-        public string Location { get; set; }
-        public int Numberofproductssold {  get; set; }
+        public string name { get; set; }
+        public string surname { get; set; }
+        public string userID { get; set; }
+        public string email { get; set; }
+        public int phoneNumber { get; set; }
+       
 
-        public bool Validatedprofil { get; set; }
-        public string Description { get; set; }
-
-        bool Login()
-        { return true; }
-        bool Logout()
-        { return false; }
-
+      
     }
 }
