@@ -102,18 +102,18 @@ public void Submit()
 
                  cmd.CommandText = @"
             INSERT INTO sounds(Name, Artist, Condition, Speed, Size, Year, Price, Genre, Album, Tracks)
-            VALUES(@name, @artist, @condition, @speed, @size, @year, @price, @genre, @album, @tracks);";
+            VALUES(@name, @Artist, @Condition, @Speed, @Size, @Year, @Price, @Genre, @Album, @Tracks);";
 
-            cmd.Parameters.AddWithValue("name", Name ?? (object)DBNull.Value);
-            cmd.Parameters.AddWithValue("artist", Artist ?? (object)DBNull.Value);
-            cmd.Parameters.AddWithValue("condition", Condition ?? (object)DBNull.Value);
-            cmd.Parameters.AddWithValue("speed", Speed ?? (object)DBNull.Value);
-            cmd.Parameters.AddWithValue("size", Size ?? (object)DBNull.Value);
-            cmd.Parameters.AddWithValue("year", Year.ToString());
-            cmd.Parameters.AddWithValue("price", Price.ToString());
-            cmd.Parameters.AddWithValue("genre", Genre ?? (object)DBNull.Value);
-            cmd.Parameters.AddWithValue("album", Album ?? (object)DBNull.Value);
-            cmd.Parameters.AddWithValue("tracks", Tracks ?? (object)DBNull.Value);
+            cmd.Parameters.AddWithValue("Name", Name ?? (object)DBNull.Value);
+            cmd.Parameters.AddWithValue("Artist", Artist ?? (object)DBNull.Value);
+            cmd.Parameters.AddWithValue("Condition", Condition ?? (object)DBNull.Value);
+            cmd.Parameters.AddWithValue("Speed", Speed ?? (object)DBNull.Value);
+            cmd.Parameters.AddWithValue("Size", Size ?? (object)DBNull.Value);
+            cmd.Parameters.AddWithValue("Year", Year.ToString());
+            cmd.Parameters.AddWithValue("Price", Price.ToString());
+            cmd.Parameters.AddWithValue("Genre", Genre ?? (object)DBNull.Value);
+            cmd.Parameters.AddWithValue("Album", Album ?? (object)DBNull.Value);
+            cmd.Parameters.AddWithValue("Tracks", Tracks ?? (object)DBNull.Value);
             
              
                 
