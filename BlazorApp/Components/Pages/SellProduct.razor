@@ -5,6 +5,7 @@
 @inject IWebHostEnvironment _hostingEnvironment
 @inject List<Sound> allSounds
 @inject List<Soundablegadget> AllSoundablegadgets
+@using Domain_Models
  
 <h1>Sell Your Vinyl Record Here!</h1>
 <br />
@@ -21,7 +22,7 @@
                     </div>
                     <div class="input-box">
                         <span class="details">Condition</span>
-                        <select id="bad" required>
+                        <select id="bad" @bind="Condition" required>
                             <option value="mint">Mint</option>
                             <option value="excellent">Excellent</option>
                             <option value="veryGood">Very Good</option>
@@ -69,7 +70,7 @@
                     </div>
                 </div>
                 <div class="button">
-                    <input type="submit" value="Register">
+                    <input @onclick="Submit" value="Register">
                 </div>
             </form>
         </div>
@@ -78,57 +79,58 @@
 
 
 @code {
-        public string Name {  get; set; }
-        public string Condition { get; set; }
-        public string Speed { get; set; }
-        public string Tracks { get; set; }
-        public string Size { get; set; }
-        public int Year { get; set; }
-        public int Price { get; set; }
-        public string Genre { get; set; }
-        public string Album { get; set; }
-        public string Artist { get; set; }
-}
+    public string Name { get; set; }
+    public string Condition { get; set; }
+    public string Speed { get; set; }
+    public string Tracks { get; set; }
+    public string Size { get; set; }
+    public int Year { get; set; }
+    public int Price { get; set; }
+    public string Genre { get; set; }
+    public string Album { get; set; }
+    public string Artist { get; set; }
 
-@code {
-public void Submit()
-{
-     string connectionString = "Host=ep-icy-king-a5d5u7sc.us-east-2.aws.neon.tech;Username=neondb_owner;Password=wzWv76MaoNOA;Database=neondb;sslmode=require";
-            using var connection = new NpgsqlConnection(connectionString);
-            connection.Open();
-            using (var cmd = new NpgsqlCommand())
-            {
-                cmd.Connection = connection;
 
-                 cmd.CommandText = @"
+
+    public void Submit()
+    {
+        string connectionString = "Host=ep-icy-king-a5d5u7sc.us-east-2.aws.neon.tech;Username=neondb_owner;Password=wzWv76MaoNOA;Database=neondb;sslmode=require";
+        using var connection = new NpgsqlConnection(connectionString);
+        connection.Open();
+        using (var cmd = new NpgsqlCommand())
+        {
+            cmd.Connection = connection;
+
+            cmd.CommandText = @"
             INSERT INTO sounds(Name, Artist, Condition, Speed, Size, Year, Price, Genre, Album, Tracks)
-            VALUES(@name, @Artist, @Condition, @Speed, @Size, @Year, @Price, @Genre, @Album, @Tracks);";
+            VALUES(@Name, @Artist, @Condition, @Speed, @Size, @Year, @Price, @Genre, @Album, @Tracks);";
 
             cmd.Parameters.AddWithValue("Name", Name ?? (object)DBNull.Value);
             cmd.Parameters.AddWithValue("Artist", Artist ?? (object)DBNull.Value);
             cmd.Parameters.AddWithValue("Condition", Condition ?? (object)DBNull.Value);
             cmd.Parameters.AddWithValue("Speed", Speed ?? (object)DBNull.Value);
             cmd.Parameters.AddWithValue("Size", Size ?? (object)DBNull.Value);
-            cmd.Parameters.AddWithValue("Year", Year.ToString());
-            cmd.Parameters.AddWithValue("Price", Price.ToString());
+            cmd.Parameters.AddWithValue("Year", Year);
+            cmd.Parameters.AddWithValue("Price", Price);
             cmd.Parameters.AddWithValue("Genre", Genre ?? (object)DBNull.Value);
             cmd.Parameters.AddWithValue("Album", Album ?? (object)DBNull.Value);
             cmd.Parameters.AddWithValue("Tracks", Tracks ?? (object)DBNull.Value);
-            
-             
-                
-              
-               
-               
-                cmd.ExecuteNonQuery();
-            }
-            NavigationManager.NavigateTo("/login");
 
 
-            
+
+
+
+
+            cmd.ExecuteNonQuery();
         }
-    }
-} 
+        NavigationManager.NavigateTo("/vinyl");
 
+
+
+    }
 }
+
+
+
+
 
