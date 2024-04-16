@@ -1,8 +1,9 @@
 ﻿using Domain_Models;
 using Npgsql;
+using NpgsqlTypes;
 using System.Buffers;
 using System;
-using Domain_Models;
+
 
 namespace Service
 {
@@ -54,6 +55,61 @@ namespace Service
                 }
             }
         }
+
+        public List<Sellers> AB;
+        public List<Sellers> HentBrugere()
+        {
+            List<Sellers> alleBrugere = new List<Sellers>();
+
+            using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string sql = "SELECT * FROM bruger";
+
+                using (NpgsqlCommand command = new NpgsqlCommand(sql, connection))
+                {
+                    using (NpgsqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            alleBrugere.Add(new Sellers()
+                            {
+                                fullName = reader["FullName"].ToString(),
+                                userID = reader["UserID"].ToString(),
+                                email = reader["Email"].ToString(),
+                                phoneNumber = Convert.ToInt32(reader["PhoneNumber"]),
+                                password = reader["Password"].ToString()
+                            });
+                        }
+                        return alleBrugere;
+                    }
+                }
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }
 
