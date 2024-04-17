@@ -18,7 +18,7 @@ namespace Service
             {
                 connection.Open();
 
-                string sql = "SELECT Brand, Model, Color, Year, Condition, Price, Size, ImageUrl, Description, Bluetooth, Cd, type, Kassette FROM soundablegagdet";
+                string sql = "SELECT Brand, Model, Color, Year, Condition, Price, Size, Url, Description, Bluetooth, Cd, type, Kassette FROM soundablegagdet";
 
                 using (NpgsqlCommand command = new NpgsqlCommand(sql, connection))
                 {
@@ -39,7 +39,7 @@ namespace Service
                                     Year = Convert.ToInt32(reader["Year"]),
                                     Condition = reader["Condition"].ToString(),
                                     Price = Convert.ToInt32(reader["Price"]),
-                                    ImageUrl = reader["ImageUrl"].ToString(),
+                                    Url= reader["Url"].ToString(),
                                     Description = reader["Description"].ToString(),
                                     Bluetooth = Convert.ToBoolean(reader["Bluetooth"]),
                                     Cd = Convert.ToBoolean(reader["Cd"]),
@@ -60,7 +60,7 @@ namespace Service
                                     Year = Convert.ToInt32(reader["Year"]),
                                     Condition = reader["Condition"].ToString(),
                                     Price = Convert.ToInt32(reader["Price"]),
-                                    ImageUrl = reader["ImageUrl"].ToString(),
+                                    Url = reader["Url"].ToString(),
                                     Description = reader["Description"].ToString(),
                                     Wireless = Convert.ToBoolean(reader["Wireless"])
 
@@ -80,7 +80,7 @@ namespace Service
                                     Year = Convert.ToInt32(reader["Year"]),
                                     Condition = reader["Condition"].ToString(),
                                     Price = Convert.ToInt32(reader["Price"]),
-                                    ImageUrl = reader["ImageUrl"].ToString(),
+                                    Url = reader["Url"].ToString(),
                                     Description = reader["Description"].ToString(),
                                     Type = reader["TypeofVinyl"].ToString()       
 

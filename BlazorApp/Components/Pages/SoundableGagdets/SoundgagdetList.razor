@@ -3,7 +3,7 @@
 
 <PageTitle>Soundable Gagdets</PageTitle>
 
-<h1>We currently have @soundGagdetsToShow.Count soundablegagdets in our system</h1>
+<h1>We currently have @SoundablegadgetsToShow.Count soundablegagdets in our system</h1>
 
 <select @bind="SelectedColor" class="form-select">
     <option>Select a color</option>
@@ -15,36 +15,47 @@
 
 <button class="btn btn-primary" onclick="() => FilterAndUpdateSoundablegadgets()">Click me</button>
 
-@foreach (Soundablegadget soundgadget in soundGagdetsToShow)
+@foreach (Soundablegadget soundablegadget in SoundablegadgetsToShow)
 {
-    <SoundablegadgetCard soundablegagdet="soundgagdet"></SoundablegadgetCard>
+    <div class="col-md-4">
+        <div class="card" style="width: 25rem;">
+            <img src="@soundablegadget.Url" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">@soundablegadget.Name</h5>
+                <p class="card-text">Artist: @soundablegadget.Brand</p>
+                <p class="card-text">Condition: @soundablegadget.Condition</p>
+                <p class="card-text">Price: @soundablegadget.Price</p>
+                <a href="/vinyl/@soundablegadget.GadgetId" class="btn btn-primary">Press here to see details</a>
+            </div>
+        </div>
+    </div>
 }
 @code {
     public string SelectedColor;
 
-    public List<Soundablegadget> soundGagdetsToShow;
+    public List<Soundablegadget> SoundablegadgetsToShow;
     private string connectionString;
 
     protected override void OnInitialized()
     {
-        soundGagdetsToShow = AllSoundablegadgets;
+        SoundablegadgetsToShow = AllSoundablegadgets;
     }
 
     public void FilterAndUpdateSoundablegadgets()
     {
-        soundGagdetsToShow = FilterColor(AllSoundablegadgets, SelectedColor);
+        SoundablegadgetsToShow = FilterColor(AllSoundablegadgets, SelectedColor);
     }
 
     public List<Soundablegadget> FilterColor(List<Soundablegadget> AllSoundablegadgets, string colorFilter)
     {
         if (colorFilter != "")
         {
-            soundGagdetsToShow = AllSoundablegadgets.Where(soundgagdet => soundgagdet.Color.ToUpper() == colorFilter.ToUpper()).ToList();
+            SoundablegadgetsToShow = AllSoundablegadgets.Where(soundgagdet => soundgagdet.Color.ToUpper() == colorFilter.ToUpper()).ToList();
         } else
         {
-            soundGagdetsToShow = AllSoundablegadgets;
+            SoundablegadgetsToShow = AllSoundablegadgets;
         }
 
-        return soundGagdetsToShow;
+        return SoundablegadgetsToShow;
     }
 }

@@ -1,6 +1,6 @@
 ﻿@page "/soundablegadget/{GadgetId}"
 
-<PageTitle>Soundable Gadgets</PageTitle>
+@*<PageTitle>Soundable Gadgets</PageTitle>
 
 @if (SoundablegadgetsToShow is Bombox bombox)
 {
@@ -27,3 +27,44 @@
         SoundablegadgetsToShow = AllSoundablegadgets.Find(x => x.GadgetId == idToFind);
     }
 }
+*@
+
+<PageTitle>Soundable Gagdet @GadgetId</PageTitle>
+
+<div class="container">
+    <div class="card-wrapper">
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">@SoundablegadgetsToShow.Name</h2>
+                <h4 class="card-subtitle">@SoundablegadgetsToShow.Brand</h4>
+                <img src="@SoundablegadgetsToShow.Url" class="img-fluid">
+            </div>
+            <div class="card-body">
+                <ul class="details-list">
+                    <li><strong>Model:</strong> @SoundablegadgetsToShow.Model</li>
+                    <li><strong>Condition:</strong> @SoundablegadgetsToShow.Condition</li>
+                    <li><strong>Color:</strong> @SoundablegadgetsToShow.Color</li>
+                    <li><strong>Year:</strong> @SoundablegadgetsToShow.Year</li>
+                    <li><strong>Price:</strong> @SoundablegadgetsToShow.Price</li>
+                    <li><strong>Description:</strong> @SoundablegadgetsToShow.Description</li>
+                </ul>
+            </div>
+            <div class="card-footer">
+                <a href="/vinyl" class="btn btn-black">Go back to products</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public string GadgetId { get; set; }
+    public Soundablegadget SoundablegadgetsToShow;
+
+    protected override void OnInitialized()
+    {
+        SoundablegadgetsToShow = AllSoundablegadgets[Int32.Parse(GadgetId) - 1];
+    }
+
+}
+

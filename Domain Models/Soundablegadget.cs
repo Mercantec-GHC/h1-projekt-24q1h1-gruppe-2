@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Domain_Models
 {
-    public abstract class Soundablegadget
+    public class Soundablegadget
     {
         public uint GadgetId { get; set; }
         public string Brand { get; set; }
